@@ -1,0 +1,29 @@
+{
+	"BillingData": [{
+		"Status": "To Be Posted",
+		"Debit":"3",
+		"Credit":"6",
+		"Invoice":"15"
+    },{
+		"Status": "Not Relevant",
+		"Debit":"5",
+		"Credit":"4",
+		"Invoice":"5"
+    },{
+		"Status": "InComplete",
+		"Debit":"5",
+		"Credit":"4",
+		"Invoice":"9"
+    },{
+		"Status": "Completed",
+		"Debit":"15",
+		"Credit":"9",
+		"Invoice":"20"
+    },{
+		"Status": "Cancelled",
+		"Debit":"3",
+		"Credit":"3",
+		"Invoice":"7"
+    }]
+    
+ }

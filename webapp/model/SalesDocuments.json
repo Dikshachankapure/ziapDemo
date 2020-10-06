@@ -1,0 +1,19 @@
+{
+	"SalesDocumentsData": [{
+		"DocumentCategory": "Order",
+		"TotalDocs":"10"
+    },{
+		"DocumentCategory": "Returns",
+		"TotalDocs":"20"
+    },{
+		"DocumentCategory": "Credit Memo Request",
+		"TotalDocs":"30"
+    },{
+		"DocumentCategory": "Order Without Charge",
+		"TotalDocs":"20"
+    },{
+		"DocumentCategory": "Debit Memo Request",
+		"TotalDocs":"20"
+    }]
+    
+ }

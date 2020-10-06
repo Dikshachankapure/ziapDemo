@@ -1,0 +1,113 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" xmlns="sap.m"
+	controllerName="poc.ziapdemo.controller.Page1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavButtonPress"/>
+				<ToolbarSpacer width="20px"/>
+				<Button icon="sap-icon://hide" type="Transparent"/>
+				<ToolbarSpacer/>
+				<Text text="Page 1" wrapping="false"></Text>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://search" type="Transparent"/>
+				<Button icon="sap-icon://marketing-campaign" type="Transparent"/>
+				<Button icon="sap-icon://discussion" type="Transparent"/>
+				<Button icon="sap-icon://sys-help" type="Transparent"/>
+				<Button icon="sap-icon://account" type="Transparent" press="handleUserNamePress"/>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Dashboard" key="Dashboard" icon="sap-icon://home"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 1" key="Page1" icon="sap-icon://add-document"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 2" key="Page2" icon="sap-icon://documents"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 3" key="Page3" icon="sap-icon://write-new-document"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer">
+				<pages>
+					<ScrollContainer horizontal="false" vertical="true" height="100%">
+						<Panel id="panel1" expandable="true" expanded="true" headerText="Sales" width="auto" class="sapUiResponsiveMargin">
+							<content>
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Billing Document Status" subheader="Expenses"
+									press="onPressBillingStatus">
+									<TileContent unit="EUR" footer="Current Quarter">
+										<NumericContent scale="M" value="1.96" valueColor="Error" indicator="Up"/>
+									</TileContent>
+								</GenericTile>
+								<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Sales By Month" press="onPressSalesByMonth">
+									<TileContent unit="Unit">
+										<NumericContent scale="%" value="12" valueColor="Critical" indicator="Up"/>
+									</TileContent>
+								</GenericTile>
+							</content>
+						</Panel>
+						<Panel id="panel2" visible="false" expandable="true" expanded="true" headerText="Billing Document Status" width="auto"
+							class="sapUiResponsiveMargin">
+							<content>
+								<layout:FixFlex id='chartFixFlex' minFlexSize="500">
+									<layout:flexContent>
+										<viz:Popover id="idPopOver"></viz:Popover>
+										<viz:VizFrame id="idVizFrame" vizType='bar' uiConfig="{applicationSet:'fiori'}" width="100%" height="100%">
+											<viz:dataset>
+												<viz.data:FlattenedDataset data="{/BillingData}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Status" value="{Status}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Debit" value="{Debit}"/>
+														<viz.data:MeasureDefinition name="Credit" value="{Credit}"/>
+														<viz.data:MeasureDefinition name="Invoice" value="{Invoice}"/>
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<viz:feeds>
+												<viz.feeds:FeedItem id='valueAxisFeed1' uid="valueAxis" type="Measure" values="Debit"/>
+												<viz.feeds:FeedItem id='valueAxisFeed2' uid="valueAxis" type="Measure" values="Credit"/>
+												<viz.feeds:FeedItem id='valueAxisFeed3' uid="valueAxis" type="Measure" values="Invoice"/>
+												<viz.feeds:FeedItem id='categoryAxisFeed' uid="categoryAxis" type="Dimension" values="Status"/>
+											</viz:feeds>
+										</viz:VizFrame>
+									</layout:flexContent>
+								</layout:FixFlex>
+							</content>
+						</Panel>
+						<Panel id="panel3" visible="false" expandable="true" expanded="true" headerText="Sales By Month" width="auto" class="sapUiResponsiveMargin">
+							<content>
+								<layout:FixFlex id='chartFixFlex1' minFlexSize="500">
+									<layout:flexContent>
+										<viz:Popover id="idPopOver1"></viz:Popover>
+										<viz:VizFrame id="idVizFrame1" vizType='combination' uiConfig="{applicationSet:'fiori'}" width="100%" height="100%">
+											<viz:dataset>
+												<viz.data:FlattenedDataset data="{/SalesData}">
+													<viz.data:dimensions>
+														<viz.data:DimensionDefinition name="Month" value="{Month}"/>
+													</viz.data:dimensions>
+													<viz.data:measures>
+														<viz.data:MeasureDefinition name="Sales" value="{Sales}"/>
+														<viz.data:MeasureDefinition name="Linear Sales" value="{LinearSales}"/>
+													
+													</viz.data:measures>
+												</viz.data:FlattenedDataset>
+											</viz:dataset>
+											<viz:feeds>
+												<viz.feeds:FeedItem id='valueAxisFeedSales' uid="valueAxis" type="Measure" values="Sales"/>
+												<viz.feeds:FeedItem id='valueAxisFeedLinearSales' uid="valueAxis" type="Measure" values="Linear Sales"/>
+												<viz.feeds:FeedItem id='categoryAxisFeedMonth' uid="categoryAxis" type="Dimension" values="Month"/>
+											</viz:feeds>
+										</viz:VizFrame>
+									</layout:flexContent>
+								</layout:FixFlex>
+							</content>
+						</Panel>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

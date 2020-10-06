@@ -1,0 +1,24 @@
+{
+	"RecentActivityData": [{
+		"ActivityText": "Manage Billing Document",
+		"url":"https://freedomec2.localdomain:8001/sap/bc/ui2/flp?sap-client=369&sap-ushell-config=headerless#BillingDocument-manage",
+		"Date":"9/4/2019"
+    },{
+		"ActivityText": "Incomplete Sales Documents",
+		"url":"https://freedomec2.localdomain:8001/sap/bc/ui2/flp?sap-client=369&sap-ushell-config=headerless#BillingDocument-manage",
+		"Date":"9/1/2019"
+    },{
+		"ActivityText": "Sales Fulfillment Issue",
+		"url":"https://freedomec2.localdomain:8001/sap/bc/ui2/flp?sap-client=369&sap-ushell-config=headerless#BillingDocument-manage",
+		"Date":"8/1/2019"
+    },{
+		"ActivityText": "Sales Overview",
+		"url":"https://freedomec2.localdomain:8001/sap/bc/ui2/flp?sap-client=369&sap-ushell-config=headerless#BillingDocument-manage",
+		"Date":"8/1/2019"
+    },{
+		"ActivityText": "Display Sales Order",
+		"url":"https://freedomec2.localdomain:8001/sap/bc/ui2/flp?sap-client=369&sap-ushell-config=headerless#BillingDocument-manage",
+		"Date":"7/1/2019"
+    }]
+    
+ }

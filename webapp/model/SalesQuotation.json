@@ -1,0 +1,24 @@
+{
+	"SalesQuotationData": [{
+		"Quotation": "Q1",
+		"ValidUntil":"10/2/2019",
+		"NetValue":"10000"
+    },{
+		"Quotation": "Q2",
+		"ValidUntil":"15/2/2019",
+		"NetValue":"20000"
+    },{
+		"Quotation": "Q3",
+		"ValidUntil":"20/2/2019",
+		"NetValue":"30000"
+    },{
+		"Quotation": "Q4",
+		"ValidUntil":"25/2/2019",
+		"NetValue":"40000"
+    },{
+		"Quotation": "Q5",
+		"ValidUntil":"30/2/2019",
+		"NetValue":"50000"
+    }]
+    
+ }

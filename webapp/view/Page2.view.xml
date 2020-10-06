@@ -1,0 +1,120 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout"
+	controllerName="poc.ziapdemo.controller.Page2" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.f" xmlns:card="sap.f.cards"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds" xmlns:vizData="sap.viz.ui5.data"
+	xmlns:grid="sap.ui.layout.cssgrid" xmlns:w="sap.ui.integration.widgets">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavButtonPress"/>
+				<ToolbarSpacer width="20px"/>
+				<Button icon="sap-icon://hide" type="Transparent"/>
+				<ToolbarSpacer/>
+				<Text text="Page 2" wrapping="false"></Text>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://search" type="Transparent"/>
+				<Button icon="sap-icon://marketing-campaign" type="Transparent"/>
+				<Button icon="sap-icon://discussion" type="Transparent"/>
+				<Button icon="sap-icon://sys-help" type="Transparent"/>
+				<Button icon="sap-icon://account" type="Transparent" press="handleUserNamePress"/>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Dashboard" key="Dashboard" icon="sap-icon://home"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 1" key="Page1" icon="sap-icon://add-document"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 2" key="Page2" icon="sap-icon://documents"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 3" key="Page3" icon="sap-icon://write-new-document"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer">
+				<ScrollContainer horizontal="true" vertical="true" height="100%">
+					<l:Grid class="sapUiSmallMarginTop" hSpacing="1" defaultSpan="L4 M4 S12">
+						<l:content>
+							<!--<w:Card manifest="model/carddemo.json" width="400px" height="auto"/>-->
+							<f:Card class="sapUiMediumMargin" width="350px">
+								<f:header>
+									<card:Header title="Recent Activities"/>
+								</f:header>
+								<f:content>
+									<List id="lstRecentActivity" showSeparators="None" items="{path: '/RecentActivityData'}">
+										<CustomListItem>
+											<HBox alignItems="Center" justifyContent="SpaceBetween">
+												<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+													<Link text="{ActivityText}" press="onPressRectActivity" target="_self"/>
+												</VBox>
+												<ObjectStatus class="sapUiTinyMargin" text="{Date}"/>
+											</HBox>
+										</CustomListItem>
+									</List>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiMediumMargin" width="300px">
+								<f:header>
+									<card:Header title="Open Sales Quotations" subtitle="Sorted By : Last Changed / Created date"/>
+								</f:header>
+								<f:content>
+									<Table id="tblQuotations" items="{ path: '/SalesQuotationData', sorter: { path: 'Quotation' } }">
+										<columns>
+											<Column>
+												<Text text="Quotation"/>
+											</Column>
+											<Column>
+												<Text text="Valid Until"/>
+											</Column>
+											<Column>
+												<Text text="NetValue"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem vAlign="Middle" type="Navigation" press="onPressSalesQT">
+												<cells>
+													<Text text="{Quotation}"/>
+													<Text text="{ValidUntil}"/>
+													<Text text="{NetValue}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiMediumMargin" width="300px">
+								<f:header>
+									<card:Header title="InComplete Sales Documents" subtitle="Number of Documents - 100"/>
+								</f:header>
+								<f:content>
+									<l:FixFlex id='chartFixFlex' minFlexSize="300">
+										<l:flexContent>
+											<viz:Popover id="idPopOver"></viz:Popover>
+											<viz:VizFrame id="idVizFrame" vizType="pie" width="100%" height="100%"
+												vizProperties="{plotArea: { drawingEffect: 'glossy' },title:{ text:'Sales Documents'}}">
+												<viz:dataset>
+													<vizData:FlattenedDataset data="{/SalesDocumentsData}">
+														<vizData:dimensions>
+															<vizData:DimensionDefinition name="Document Category" value="{DocumentCategory}"/>
+														</vizData:dimensions>
+														<vizData:measures>
+															<vizData:MeasureDefinition name="Sales Documents" value="{TotalDocs}"/>
+														</vizData:measures>
+													</vizData:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<vizFeeds:FeedItem uid="size" type="Measure" values='Sales Documents'/>
+													<vizFeeds:FeedItem uid="color" type="Dimension" values="Document Category"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:flexContent>
+									</l:FixFlex>
+								</f:content>
+							</f:Card>
+						</l:content>
+					</l:Grid>
+					<!--<core:HTML id="sacframe"></core:HTML>-->
+				</ScrollContainer>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

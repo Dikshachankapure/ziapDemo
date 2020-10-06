@@ -1,0 +1,62 @@
+{
+  "SalesData": [{
+        "Month": "Jan-19",
+        "Sales": 25000,
+        "LinearSales": 50000
+    },
+    {
+        "Month": "Feb-20",
+        "Sales": 42300,
+        "LinearSales": 51000
+    },
+    {
+        "Month": "Mar-19",
+        "Sales": 55421,
+        "LinearSales": 52000
+    },
+    {
+        "Month": "Apr-19",
+        "Sales": 90873,
+        "LinearSales": 53000
+    },
+    {
+        "Month": "May-19",
+        "Sales": 134222,
+        "LinearSales": 54000
+    },
+    {
+        "Month": "Jun-19",
+        "Sales": 42221,
+        "LinearSales": 54000
+    },
+    {
+        "Month": "Jul-19",
+        "Sales": 6786,
+        "LinearSales": 55000
+    },
+    {
+        "Month": "Aug-19",
+        "Sales": 85443,
+        "LinearSales": 56000
+    },
+    {
+        "Month": "Sep-19",
+        "Sales": 43662,
+        "LinearSales": 57000
+    },
+    {
+        "Month": "Oct-19",
+        "Sales": 40000,
+        "LinearSales": 58000
+    },
+    {
+        "Month": "Nov-19",
+        "Sales": 35000,
+        "LinearSales": 59000
+    },
+    {
+        "Month": "Dec-19",
+        "Sales": 25000,
+        "LinearSales": 60000
+    }]
+}

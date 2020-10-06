@@ -1,0 +1,37 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt"
+	controllerName="poc.ziapdemo.controller.Page3" xmlns:html="http://www.w3.org/1999/xhtml">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press="onSideNavButtonPress"/>
+				<ToolbarSpacer width="20px"/>
+				<Button icon="sap-icon://hide" type="Transparent"/>
+				<ToolbarSpacer/>
+				<Text text="Page 3" wrapping="false"></Text>
+				<tnt:ToolHeaderUtilitySeparator/>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://search" type="Transparent"/>
+				<Button icon="sap-icon://marketing-campaign" type="Transparent"/>
+				<Button icon="sap-icon://discussion" type="Transparent"/>
+				<Button icon="sap-icon://sys-help" type="Transparent"/>
+				<Button icon="sap-icon://account" type="Transparent" press="handleUserNamePress"/>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" itemSelect="onItemSelect">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem text="Dashboard" key="Dashboard" icon="sap-icon://home"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 1" key="Page1" icon="sap-icon://add-document"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 2" key="Page2" icon="sap-icon://documents"></tnt:NavigationListItem>
+					<tnt:NavigationListItem text="Page 3" key="Page3" icon="sap-icon://write-new-document"></tnt:NavigationListItem>
+				</tnt:NavigationList>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer">
+				<html:iframe id="sacframe" height="100%" width="100%"
+					src="https://k7419e.eu1.sapanalytics.cloud/sap/fpa/ui/tenants/7419e/app.html#;mode=embed;pageBar=disable;view_id=story;storyId=DE6BC2EF4D08D4BE15D8D8B2C71AA807"></html:iframe>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>

@@ -1,0 +1,192 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "poc.ziapdemo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "poc.ziapdemo.view.Dashboard",
+			"type": "XML",
+			"async": true,
+			"id": "Dashboard"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "poc.ziapdemo.i18n.i18n"
+				}
+			},
+			"BillingStatusSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/BillingStatus.json"
+			},
+			"SalesMonthSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/SalesByMonth.json"
+			},
+			"RecentActivitySet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/RecentActivity.json"
+			},
+			"SalesQuotationSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/SalesQuotation.json",
+				"preload": false
+			},
+			"SalesDocumentsSet": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "model/SalesDocuments.json",
+				"preload": false
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "poc.ziapdemo.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "Dashboard",
+					"pattern": "",
+					"target": [
+						"Dashboard"
+					]
+				},
+				{
+					"name": "Page1",
+					"pattern": "page1",
+					"target": [
+						"Page1"
+					]
+				},
+				{
+					"name": "Page2",
+					"pattern": "page2",
+					"target": [
+						"Page2"
+					]
+				},
+				{
+					"name": "Page3",
+					"pattern": "page3",
+					"target": [
+						"Page3"
+					]
+				},
+				{
+					"name": "Page4",
+					"pattern": "page4",
+					"target": [
+						"Page4"
+					]
+				},
+				{
+					"name": "Page5",
+					"pattern": "page5",
+					"target": [
+						"Page5"
+					]
+				}
+			],
+			"targets": {
+				"Dashboard": {
+					"viewType": "XML",
+					"transition": "show",
+					"clearControlAggregation": false,
+					"viewName": "Dashboard"
+				},
+				"Page1": {
+					"viewType": "XML",
+					"transition": "show",
+					"viewName": "Page1"
+				},
+				"Page2": {
+					"viewType": "XML",
+					"transition": "show",
+					"viewName": "Page2"
+				},
+				"Page3": {
+					"viewType": "XML",
+					"transition": "show",
+					"viewName": "Page3"
+				},
+				"Page4": {
+					"viewType": "XML",
+					"transition": "show",
+					"viewName": "Page4"
+				},
+				"Page5": {
+					"viewType": "XML",
+					"transition": "show",
+					"viewName": "Page5"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/zdashboard/webapp",
+		"_version": "1.1.0"
+	}
+}
